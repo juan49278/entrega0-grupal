@@ -1,19 +1,16 @@
-let text = document.getElementById("item");
 function add(){
-    if(text.value == ""){
-        text.classList.add("is-invalid");
+    if(item.value == ""){
+        item.classList.add("is-invalid");
     } else {
         contenedor.innerHTML += `
-        <li class="list-group-item">${text.value}</li>`
-        text.classList.remove("is-invalid");
+        <li class="list-group-item">${item.value}</li>`
+        item.classList.remove("is-invalid");
     }
-    text.value = "";
-   // let cont = document.getElementById("contenedor");
+    item.value = "";
     localStorage.setItem("content", contenedor.innerHTML)
 }
 
 agregar.addEventListener("click", add);
-
 document.addEventListener("DOMContentLoaded", () =>{
     contenedor.innerHTML = localStorage.getItem("content")
 })
@@ -21,5 +18,5 @@ document.addEventListener("DOMContentLoaded", () =>{
 limpiar.addEventListener("click", ()=>{
     contenedor.innerHTML = "";
     localStorage.removeItem("content");
-    text.classList.remove("is-invalid");
+    item.classList.remove("is-invalid");
 })
