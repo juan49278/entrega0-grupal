@@ -1,9 +1,9 @@
 function add(){
-    if(item.value == ""){
+    if(item.value.trim() == ""){
         item.classList.add("is-invalid");
     } else {
         contenedor.innerHTML += `
-        <li class="list-group-item">${item.value}</li>`
+        <li class="list-group-item">${item.value.trim()}</li>`
         item.classList.remove("is-invalid");
     }
     item.value = "";
