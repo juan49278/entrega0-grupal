@@ -1,0 +1,25 @@
+main {
+    min-height: calc(100vh - 160px);
+  }
+
+img {
+  height: 231px;
+  object-fit: cover;
+}
+
+.card-text {
+  overflow-y: scroll;
+  height: 220px;
+  font-size: 1rem;
+}
+
+.card {
+  padding: 0;
+  height: 581px;
+}
+
+.card-title {
+  padding-bottom: 5px;
+}
+
+
