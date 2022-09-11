@@ -15,11 +15,14 @@ img {
 
 .card {
   padding: 0;
-  height: 581px;
+  height: 530px;
 }
 
 .card-title {
   padding-bottom: 5px;
 }
 
-
+span {
+  font-size: 1.35rem;
+  font-weight: 600;
+}
