@@ -7,7 +7,8 @@ document.addEventListener("DOMContentLoaded", async()=>{
 btnBuscar.addEventListener("click", ()=>{
     let val = inputBuscar.value.toLowerCase();
     let printArray = result.filter(movie=>(movie.title.toLowerCase().includes(val)))/*||(movie=>movie.overview.toLowerCase().includes(val))||
-    (movie=>movie.genres.name.toLowerCase().includes(val))||(movie=>movie.tagline.toLowerCase().includes(val)));*/
+    (movie=>movie.genres.name.toLowerCase().includes(val))||(movie=>movie.tagline.toLowerCase().includes(val)));
+    https://stackoverflow.com/questions/37896484/multiple-conditions-for-javascript-includes-method*/
     for(let movies of printArray){
         lista.innerHTML+=`
         <ul class="list-group">
