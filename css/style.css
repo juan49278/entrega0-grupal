@@ -26,3 +26,7 @@ main {
 .offcanvas-top{
     height: fit-content;
 }
+
+.list-group .list-group-item:hover{
+    background-color: rgb(70, 70, 70) !important;
+}
