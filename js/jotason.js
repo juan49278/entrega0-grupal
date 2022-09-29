@@ -7,27 +7,65 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
 btnBuscar.addEventListener("click", ()=>{
   lista.innerHTML = ""
+
     let val = inputBuscar.value.toLowerCase();
-    let printArray = result.filter(movie=>(movie.title.toLowerCase().includes(val)));
+    let printArray = result.filter(movie=>(movie.title.toLowerCase().includes(val)) || 
+    (movie.tagline.toLowerCase().includes(val)) || 
+    (movie.overview.toLowerCase().includes(val)) ||
+    (movie.genres.some(genre => genre.name.toLowerCase() == val)));
+
+
+
     for(let movies of printArray){
+
         lista.innerHTML+=`
-        <a style="color: white; background-color: transparent;" data-bs-toggle="offcanvas" href="#offcanvasExample" class="list-group-item list-group-item-action d-flex justify-content-between align-items-start" aria-current="true">
+        <a onclick="canvas(${movies.id})" style="color: white; background-color: transparent;" data-bs-toggle="offcanvas" href="#offcanvasExample" class="list-group-item list-group-item-action d-flex justify-content-between align-items-start" aria-current="true">
           <div class="ms-2 me-auto">
           <div class="fw-bold">${movies.title}</div>
             <small class="text-muted">${movies.tagline}</small>
-          </div>
+          </div> 
           <span class="badge bg-primary rounded-pill">estrellitas</span>
         </a>
-        
-        
         `
     }
+
+
 })
-/*
-<li class="list-group-item cursor-active d-flex justify-content-between align-items-start" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"  style="background:none;color:#fff;">
-          <div class="ms-2 me-auto">
-            <div class="fw-bold">${movies.title}</div>
-              <small class="text-muted">${movies.tagline}</small>
-            </div>
-          <span class="badge bg-primary rounded-pill">estrellitas</span>
-        </li>*/
+
+
+function canvas(movieID){
+  movieShow = result.filter(movie=>movie.id == movieID)
+  const {title, overview, genres, release_date, budget, runtime, revenue} = movieShow[0]
+  titulo.innerHTML = title
+  overviews.innerHTML = overview
+  genresToAppend = ''
+  for(let genre of genres){
+    if(genres[0] == genre){ 
+      genresToAppend += genre.name
+    }else{
+      genresToAppend += " - "+genre.name
+    }
+  }
+  gen.innerHTML = genresToAppend
+
+  year = release_date.split('-')[0]
+  more.innerHTML = `
+  <li style="border: none" class="list-group-item d-flex justify-content-between align-items-center">
+    Year:
+    <span>${year}</span>
+  </li>
+  <li style="border: none" class="list-group-item d-flex justify-content-between align-items-center">
+    Runtime:
+    <span>${runtime} mins</span>
+  </li>
+  <li style="border: none" class="list-group-item d-flex justify-content-between align-items-center">
+    Budget:
+    <span>$${budget}</span>
+  </li>
+  <li style="border: none" class="list-group-item d-flex justify-content-between align-items-center">
+    Revenue:
+    <span>$${revenue}</span>
+  </li>
+  `
+}
+
