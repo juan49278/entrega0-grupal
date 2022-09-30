@@ -24,11 +24,14 @@ btnBuscar.addEventListener("click", ()=>{
           <div class="fw-bold">${movies.title}</div>
             <small class="text-muted">${movies.tagline}</small>
           </div> 
-          <span class="badge bg-primary rounded-pill">estrellitas</span>
+          <span class="" id="stars">
+            ${star(movies.vote_average)}
+          </span>
         </a>
         `
     }
 
+   
 
 })
 
@@ -69,3 +72,16 @@ function canvas(movieID){
   `
 }
 
+function star (score) {
+  let a = "";
+  score = Math.round(score/2)
+
+  for(let i = 0; i < 5; i++) {
+    if(i<score) {
+      a += `<span class="fa fa-star checked"></span>`
+    } else {
+      a += `<span class="fa fa-star"></span>`
+    }
+  }
+  return a;
+}
