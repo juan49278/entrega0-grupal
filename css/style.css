@@ -30,3 +30,46 @@ main {
 .list-group .list-group-item:hover{
     background-color: rgb(70, 70, 70) !important;
 }
+
+@media (max-width: 768px) {
+    .listM {
+        display: none;
+    }
+
+
+}
+
+
+@media (max-width: 992px) {
+    .noneMB {
+        display: none;
+    }
+
+    .barra {
+        display: none;
+        
+    }
+
+ 
+     
+}
+
+@media (min-width: 993px) {
+   
+  .barra {
+    display: block;
+    color: rgb(78, 78, 78);
+  }
+
+  .noneLG {
+    display: none;
+  }
+
+  
+}
+
+.navB {
+    display: flex;
+    justify-content: flex-end;
+}
+
