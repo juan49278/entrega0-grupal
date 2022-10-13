@@ -36,9 +36,10 @@ addStock.addEventListener('click', () => {
         'cost': (value) => { prodToAdd['cost'] =  value},
         'stock': (value) => { prodToAdd['stock'] =  value},
         'currency': (value) => { prodToAdd['currency'] =  value.toUpperCase()},
+        'margin': (value) => { prodToAdd['margin'] =  value},
     };
     
-    document.querySelectorAll('input').forEach(input => {
+    document.querySelectorAll('input,select').forEach(input => {
         prodFunc[input.id](input.value)
     });
     products.push(prodToAdd);

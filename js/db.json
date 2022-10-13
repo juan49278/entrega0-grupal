@@ -7,7 +7,8 @@
             "tags":["ladrillo", "naranja", "construccion"],
             "stock": 50,
             "cost": 15,
-            "currency": "UYU"          
+            "currency": "UYU",
+            "margin": 20          
 
         },
 
@@ -18,7 +19,8 @@
             "tags":["bloque", "yeso", "construccion", "obra"],
             "stock": 75,
             "cost": 30,
-            "currency": "UYU"          
+            "currency": "UYU",
+            "margin": 20          
 
         },
 
@@ -29,7 +31,8 @@
             "tags":["metal", "alambrado", "obra", "hierro"],
             "stock": 100,
             "cost": 200,
-            "currency": "UYU"          
+            "currency": "UYU",
+            "margin": 20          
 
         },
         
@@ -40,7 +43,8 @@
             "tags":["complemento", "arena", "construccion", "obra"],
             "stock": 100,
             "cost":  1000,
-            "currency": "UYU"         
+            "currency": "UYU",
+            "margin": 20         
 
         },
 
@@ -51,7 +55,8 @@
             "tags":["madera", "tabla", "mdf", "hogar", "obra"],
             "stock": 25,
             "cost": 600,
-            "currency": "UYU"          
+            "currency": "UYU",
+            "margin": 20          
 
         }
     ]    

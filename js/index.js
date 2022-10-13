@@ -14,17 +14,16 @@ document.addEventListener("DOMContentLoaded", () => {
 transactForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(e.target).entries());
-    const {type, date, idprod, cost, stock} = data;
-    showTrasanction(date, type, idprod, cost, stock);
+    const {type, date, idprod, cost, stock, ivaType} = data;
+    showTrasanction(date, type, idprod, cost, stock, ivaType);
     let values = [];
     document.querySelectorAll('input').forEach(input =>{
         values.push(input.value)
     })
     transactForm.reset()
-    
 })
 
-function showTrasanction(date, type, idprod, cost, stock){
+function showTrasanction(date, type, idprod, cost, stock, ivaType){
     const [id, prod] = idprod.split(":")
     transactTable.innerHTML += `
     <tr>
@@ -34,9 +33,9 @@ function showTrasanction(date, type, idprod, cost, stock){
         <td>${type}</td>
         <td>${stock}</td>
         <td>${cost}</td>
-        <td>${stock*cost}</td>
-        <td>${(stock*cost)*0.22}</td>
-        <td>${(stock*cost)*1.22}</td>
+        <td>${parseInt(stock)*parseInt(cost)}</td>
+        <td>${(parseInt(stock)*parseInt(cost))*parseInt(ivaType)/100}</td>
+        <td>${(parseInt(stock)*parseInt(cost))*(1+parseInt(ivaType)/100)}</td>
     </tr>
     `
     for(product of products){
