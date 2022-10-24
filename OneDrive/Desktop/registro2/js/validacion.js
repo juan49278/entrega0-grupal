@@ -3,33 +3,61 @@
     forms = document.querySelectorAll('.needs-validation')
              .forEach(function (form) {
        form.addEventListener('submit', function (event) {
-         if (!form.checkValidity()||!validatePassword()) {
-           event.preventDefault()
-           event.stopPropagation()
-         }
-           form.classList.add('was-validated')
-       }, false)
-     })
+
+        validatePassword()
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+          form.classList.add('was-validated')
+          validateCheck();
+      }, false)
+      })
   })()
 
+document.querySelectorAll('#password1, #password2').forEach(input => {
+  input.addEventListener('input', () =>{
+    validatePassword()
+})
+});
+
+document.getElementById('terms').addEventListener('input', ()=>{
+  validateCheck()
+})
+
   //Contraseña +6 caracteres .lenght>=6
-   function validatePassword(){
-    const password = document.querySelector('#password1').value;
-    const passwordConfirm = document.querySelector('#password2').value;
-    if ((password.lenght<6)){
-        password.classList.add("is-invalid");
-        passwordConfirm.classList.add("is-invalid");
-        return false;
-    } else {
-        if(password==passwordConfirm){
-        password.classList.remove("is-invalid");
-        passwordConfirm.classList.remove("is-invalid");
-        return true;
-        }
-        else{
-            password.classList.remove("is-invalid");
-            return false;
-        }
+function validatePassword(){
+  const password = document.querySelector('#password1');
+  const passwordConfirm = document.querySelector('#password2');
+  if ((password.value.length<6)){
+      password.setCustomValidity('El largo del password es menor a 6')
+      passwordConfirm.setCustomValidity('El largo del password es menor a 6')
+  } else {
+      if(password.value==passwordConfirm.value){
+        password.setCustomValidity('')   
+        passwordConfirm.setCustomValidity('')
+      }
+      else{
+        password.setCustomValidity('') 
+        passwordConfirm.setCustomValidity('aaaaaaa')
+      }
+  }
+}
+
+function validateCheck(){
+  const checkBx = document.querySelector('#terms');
+  form = document.querySelector('.was-validated')
+  if(form){
+    if(!checkBx.checkValidity()){
+      condition.classList.add('is-invalid', 'text-danger')
+    }else{
+      condition.classList.remove('is-invalid', 'text-danger')
     }
-   }
+  }
+  
+}
+
+
+
+
    

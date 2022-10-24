@@ -59,16 +59,20 @@
               </div>
             </div>
 
-            <div class="col-sm-12">
-              <button type="button" class="btn btn-link ps-0" data-bs-toggle="modal"
+            <div class="col-sm-12 d-flex">
+              <button type="button" id="condition" class="btn btn-link ps-0 text-nowrap py-0" data-bs-toggle="modal"
                 data-bs-target="#modalTerminos">Términos del servicio</button>
+                <div class="invalid-feedback"> 
+                 Debe aceptar los terminos y condiciones.
+                </div>
                 
             </div>
             <div class="modal fade" id="modalTerminos" tabindex="-1" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h1 class="modal-title fs-5">Términos y condiciones del servicio.</h1>
+                    <h1 class="modal-title fs-5" >Términos y condiciones del servicio.</h1>
+                    
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> 
                   </div>
       
@@ -79,7 +83,7 @@
                   </div>
                   <div class="modal-footer">
                     <div class="form-check">
-                      <input type="checkbox" class="form-check-input" id="terminos" required>
+                      <input type="checkbox" class="form-check-input" id="terms" required>
                       <label class="form-check-label" for="terminos">Acepto los términos y condiciones del servicio.</label>
                       
                     </div>
