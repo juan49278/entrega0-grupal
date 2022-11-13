@@ -11,9 +11,9 @@
 
 <body>
 
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <div id="badRequest" style="z-index: 10000;" class="alert alert-danger alert-dismissible fade" role="alert">
         Algo salio mal..
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <button type="button" id='closeAlert' class="btn-close" aria-label="Close"></button>
       </div>
 
     <main class="container">
@@ -35,7 +35,7 @@
                     <div class="col-md-6">
                         <div class="border p-3 my-3 position-relative" id="post-box">
                             <h6>Ingresar nuevo registro</h6>
-                            <input type="text" id="inputPostNombre" class="form-control my-1" placeholder="Nombre" oninput="inputVerification()">
+                            <input type="text" id="inputPostNombre" class="form-control my-1" placeholder="Nombre" oninput="inputVerificationPost()">
                             <input type="text" id="inputPostApellido" class="form-control my-1" placeholder="Apellido" oninput="inputVerificationPost()">
                             <button id="btnPost" class="btn btn-success position-absolute bottom-0 mb-3" disabled>
                                 Agregar</button>
@@ -48,7 +48,7 @@
                             <h6>Modificar registro</h6>
                             <input type="number" id="inputPutId" class="form-control"
                                 placeholder="ID del registro a modificar" oninput="inputVerificationPut()">
-                            <button id="btnPut" class="btn btn-warning position-absolute bottom-0 mb-3" disabled data-bs-toggle="modal" data-bs-target="#dataModal" >
+                            <button id="btnPut" class="btn btn-warning position-absolute bottom-0 mb-3" disabled >
                                 Modificar</button>
                         </div>
                     </div>
